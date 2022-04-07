@@ -37,9 +37,9 @@ function Popular() {
           rewindSpeed: 500,
           perPage: 4,
           arrows: true,
-          pagination: false,
+          pagination: true,
           drag: 'free',
-          gab: "10rem",
+          gab: "5rem",
         }}
         >
         {popular.map((recipe) => {
