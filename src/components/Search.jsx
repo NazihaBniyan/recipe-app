@@ -27,23 +27,23 @@ function Search() {
 }
 
 const FormStyle = styled.form`
-margin: 0rem, 20rem
-
+margin: 5rem, 5rem;
 div{
     width: 100%;
-    position: relative;
-    margin-left: 200px
+    margin-left: 200px;
+    margin-top: -120px;
 }
 input{
     border: none;
     background: linear-gradient(35deg,#494949,#313131);
-    font-size: 1.5rem;
+    font-size: 0.9rem;
     text-align: center;
     color: white;
     padding: 1rem, 3rem;
     border: none;
     border-radius: 0.5rem;
     outline: none;
+    height:30px;
     width:50%;
 }
 svg{
