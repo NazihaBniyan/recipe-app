@@ -17,8 +17,8 @@ function Popular() {
     if (check) {
       setPopular(JSON.parse(check));
     } else {
-      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=15`
-      );
+   const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+    );
       const data = await api.json();
       localStorage.setItem('popular', JSON.stringify(data.recipes));
       setPopular(data.recipes);
@@ -37,9 +37,9 @@ function Popular() {
           rewindSpeed: 500,
           perPage: 4,
           arrows: true,
-          pagination: true,
+          pagination: false,
           drag: 'free',
-          gab: "5rem",
+          gab: "10rem",
         }}
         >
         {popular.map((recipe) => {
@@ -57,51 +57,58 @@ function Popular() {
       </Splide>
 
     </Wrapper>
-  
+ 
     </div >
   )
 }
 const Wrapper = styled.div`
 margin: 2rem 0rem;
+content: center;
+width: 300 px;
 `;
 const Card = styled.div`
-min-hieght: 25rem;
-border-radius: 2rem;
+min-hieght: 20rem;
+content-align: center;
+margin: 2rem 0.5rem;
+border-radius: 1rem;
 overflow: hidden;
 position: relative;
+justify-content: center;
+
 
 img {
-  border-radius: 2rem;
+  border-radius: 1rem;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit cover: 
 }
 
-p {
+p{
   position: absolute;
-  z-index: 10;
-  left: 50%;
-  bottom: 0%;
-  transform: translate(-50%, 0%);
+  z-index: 1;
+  left: 55%;
+  bottom: 10%;
+  transform: translate(-50%, 30%);
   color: white;
   width: 100%;
   text-algin: center;
-  font-weight: 600;
-  font-size: 0.7rem;
+  font-weight: 700;
+  font-size: 0.6rem;
   height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  }
+}
+
 `;
 
 const Gradient = styled.div`
-z-index: 3;
-position: absolute;
+z-index: 0;
 width: 100%;
 height: 100%;
-background:linear-gradient(rgba(192,192,192,0.5), rgba(192,192,192,0.5));
+background-image: linear-gradient(to right, 
+  rgba(1,0,0,0.5), rgba(1,0,0,0.5));
 `;
 export default Popular
 
