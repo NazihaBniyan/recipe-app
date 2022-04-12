@@ -1,0 +1,104 @@
+.mainDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top:600px;
+}
+/*********/
+section {
+    margin: 2rem 0 1rem 0;
+
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -60px;
+}/**/
+
+input {
+    text-align: center;
+    padding: 0.5rem;
+    margin-top: -40px;
+
+}/****/
+
+button {
+    padding: 0.6rem 1.2rem;
+    background-color: #313131;
+    color: white;
+    border: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+    margin-left: 23rem;
+    margin-top: -200px;
+}/**/
+
+button:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, #f27121, #e94057);
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}/**/
+
+.nutrients ul{
+    display: flex;
+    width: 35rem;
+    justify-content: space-around;
+    margin-left: 200px;
+
+}/**/
+
+ul {
+    list-style: none;
+}/**/
+
+.meals {
+    display: flex;
+}/**/
+
+img {
+    width: 100%;
+    margin-bottom: 1rem;
+}/**/
+
+article {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 0 1rem;
+    max-width: 18rem;
+    box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+
+}/**/
+
+.instructions {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}/**/
+
+.links {
+    text-decoration: none;
+    background-color: #313131;
+    color: white;
+    width: fit-content;
+    padding: -0.5rem 1rem;
+    margin-top: 1rem;
+}
+
+.links:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, #f27121, #e94057);
+
+}

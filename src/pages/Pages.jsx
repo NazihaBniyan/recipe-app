@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './Home';
 import Cuisine from "./Cuisine";
 import Searched from "./Searched";
+import DailyPlan from "./DailyPlan";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Recipe from "./Recipe";
 import { AnimatePresence } from "framer-motion";
@@ -15,6 +16,7 @@ function Pages() {
         <Route path="/cuisine/:type" element={<Cuisine />} />
         <Route path="/searched/:search" element={<Searched />} />
         <Route path="/recipe/:name" element={<Recipe />} />
+        <Route path="/dailyplan" element={<DailyPlan />} />
       </Routes>
     </AnimatePresence>
 

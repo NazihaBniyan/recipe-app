@@ -3,26 +3,27 @@ import styled from 'styled-components';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
 import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
-import {Link} from "react-router-dom";
+import{Link} from "react-router-dom";
 
-function Popular() {
-  const [popular, setPopular] = useState([]);
+function MainCourse() {
+  const [maincourse, setMainCourse] = useState([]);
 
   useEffect(() => {
-    getPopular();
+    getMainCourse();
   }, [])
 
-  const getPopular = async () => {
+  const getMainCourse = async () => {
 
-    const check = localStorage.getItem('popular');
+    const check = localStorage.getItem('maincourse');
     if (check) {
-      setPopular(JSON.parse(check));
+      setMainCourse(JSON.parse(check));
     } else {
-   const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
-    );
-      const data = await api.json();
-      localStorage.setItem('popular', JSON.stringify(data.recipes));
-      setPopular(data.recipes);
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=appetizer`
+      );
+      console.log(api);
+
+      localStorage.setItem('maincourse', JSON.stringify(api.recipes));
+      setMainCourse(api.recipes);
     }
 
 
@@ -30,7 +31,7 @@ function Popular() {
   return (
     <div>
       <Wrapper>
-        <h3>Popular Picks</h3>
+        <h3>Our Main Course Picks</h3>
 
         <Splide 
         options={{
@@ -43,14 +44,14 @@ function Popular() {
           gab: "10rem",
         }}
         >
-        {popular.map((recipe) => {
+        {maincourse.map((recipe) => {
           return (
 
             <SplideSlide key={recipe.id} >
-              <Card>
-                <Link to={'/recipe/' + recipe.id}>
-                <Gradient />
+              <Card >
+                <Link to={'/recipe/'+ recipe.id}>
                 <p>{recipe.title} </p>
+                <Gradient />
                 <img src={recipe.image} alt={recipe.title} />
                 </Link>
               </Card>
@@ -68,9 +69,6 @@ const Wrapper = styled.div`
 margin: 2rem 0rem;
 content: center;
 width: 300 px;
-h3{
-  margin-bottom: -0.5rem;
-}
 `;
 const Card = styled.div`
 min-height: 5rem;
@@ -121,5 +119,5 @@ background-image: linear-gradient(to right,
   rgba(0,0,0,0.2), rgba(0,0,0,0.2));
   opacity:0.4;
 `;
-export default Popular
+export default MainCourse
 

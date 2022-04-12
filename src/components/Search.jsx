@@ -27,11 +27,11 @@ function Search() {
 }
 
 const FormStyle = styled.form`
-margin: 5rem, 5rem;
+margin: 5rem, 20rem;
 div{
-    width: 100%;
-    margin-left: 200px;
-    margin-top: -120px;
+    width: 50%;
+    margin-left: 970px;
+    margin-top: -230px;
 }
 input{
     border: none;

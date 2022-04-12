@@ -28,7 +28,7 @@ function Category() {
 const List = styled.div`
 display: flex;
 justify-content: center;
-margin: 2rem 0rem;
+margin: 9.6rem 13rem;
 `;
 const Slink = styled(NavLink)`
 display: flex;

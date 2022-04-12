@@ -3,26 +3,28 @@ import styled from 'styled-components';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
 import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
-import {Link} from "react-router-dom";
+import{Link} from "react-router-dom";
 
-function Popular() {
-  const [popular, setPopular] = useState([]);
+function Diets() {
+  const [diets, setDiets] = useState([]);
 
   useEffect(() => {
-    getPopular();
+    getDiets();
   }, [])
 
-  const getPopular = async () => {
+  const getDiets = async () => {
 
-    const check = localStorage.getItem('popular');
+    const check = localStorage.getItem('diets');
     if (check) {
-      setPopular(JSON.parse(check));
+      setDiets(JSON.parse(check));
     } else {
-   const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
-    );
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=vegan`
+      );
+      console.log(api);
       const data = await api.json();
-      localStorage.setItem('popular', JSON.stringify(data.recipes));
-      setPopular(data.recipes);
+      console.log(data);
+      localStorage.setItem('diets', JSON.stringify(data.recipes));
+      setDiets(data.recipes);
     }
 
 
@@ -30,7 +32,7 @@ function Popular() {
   return (
     <div>
       <Wrapper>
-        <h3>Popular Picks</h3>
+        <h3>Our Vegan Picks</h3>
 
         <Splide 
         options={{
@@ -43,14 +45,14 @@ function Popular() {
           gab: "10rem",
         }}
         >
-        {popular.map((recipe) => {
+        {diets.map((recipe) => {
           return (
 
             <SplideSlide key={recipe.id} >
-              <Card>
-                <Link to={'/recipe/' + recipe.id}>
-                <Gradient />
+              <Card >
+                <Link to={'/recipe/'+ recipe.id}>
                 <p>{recipe.title} </p>
+                <Gradient />
                 <img src={recipe.image} alt={recipe.title} />
                 </Link>
               </Card>
@@ -121,5 +123,5 @@ background-image: linear-gradient(to right,
   rgba(0,0,0,0.2), rgba(0,0,0,0.2));
   opacity:0.4;
 `;
-export default Popular
+export default Diets
 

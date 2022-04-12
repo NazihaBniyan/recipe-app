@@ -68,6 +68,9 @@ const Wrapper = styled.div`
 margin: 2rem 0rem;
 content: center;
 width: 300 px;
+h3{
+  margin-bottom: -0.5rem;
+}
 `;
 const Card = styled.div`
 min-height: 5rem;
