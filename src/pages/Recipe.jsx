@@ -23,7 +23,7 @@ function Recipe() {
             <h2>
                 {details.title}
             </h2>
-            <img height="150" width="220" src={details.image} alt="" />
+            <img style={imgstyle} src={details.image} alt="" />
             <Info>
                 <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab("instructions")}>Instructions </Button>
                 <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => setActiveTab("ingredients")}>
@@ -50,19 +50,30 @@ function Recipe() {
 
     </DetailWrapper>
 }
+const imgstyle={
+height:"150px" ,
+width:"220px",
+marginTop:"-2.5rem",
+border: "2px solid rgba(77, 77, 77, 0.15)",
+boxShadow: "0 6px 9px 5px rgba(77, 77, 77, 0.15)"
+}
 
 const DetailWrapper = styled.div`
 margin-top: 7rem;
 margin-left: -7rem;
+padding: 2rem;
 margin-bottom: 5rem;
+border: 2px solid rgba(255, 255, 255, 0.);
+box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
 display: flex;
+
 .active{
     background: linear-gradient(35deg, #494949,#313131);
     color: white;
 }
 h2{
-    margin-bottom:1rem;
-    font-size: 0.9rem;
+    margin-bottom:5rem;
+    font-size: 1rem;
 }
 li{
     font-size: 0.9rem;
@@ -74,22 +85,24 @@ ul{
 `;
 
 const Button = styled.button`
-padding: 0.7rem 2rem;
+padding: 0.9rem 2rem;
 color: #313131;
 background: white;
 border: 2px solid black;
-margin-right: 1rem;
-margin-top: 0.2rem;
+margin-right: 0.8rem;
+margin-top: -20rem;
 font-weight: 600
 `;
 const Info = styled.div`
 margin-left: 16rem;
-margin-top: -16rem;
+margin-top: -9rem;
+
+
 
 h3{
     font-size: 0.9rem;
     font-weight: 400;
-    padding: 0rem 0rem;
+    padding: 0.1rem 0rem;
     }
 
 `;
